@@ -13,8 +13,15 @@
 const giphyApiKey = "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym";
 
 
+// async function giphyRequest() {
+//     const response = await axios.get(`http://api.giphy.com/v1/gifs/trending?api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym`);
+//     console.log(response);
+//   }
+//   giphyRequest();
+
+
 async function giphyRequest() {
-    const response = await axios.get(`http://api.giphy.com/v1/gifs/trending?api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym`);
+    const response = await axios.get(`http://api.giphy.com/v1/gifs/trending?api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym&limit=10`);
     console.log(response);
   }
   giphyRequest();
