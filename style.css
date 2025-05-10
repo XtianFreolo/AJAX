@@ -1,1 +1,14 @@
-/* Your Styles Here */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px
+}
+
+#gif-container img {
+    margin: 10px;
+    height: 200px;
+}
+
+button {
+    margin-left: 10px;
+}
+    /* Your Styles Here */

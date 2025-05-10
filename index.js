@@ -11,6 +11,42 @@
 
 
 const giphyApiKey = "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym";
+const form = document.getElementById("search-form");
+const input = document.getElementById("search-input");
+const gifContainer = document.getElementById("gif-container");
+const removeButton = document.getElementById("remove-button");
+
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const query = input.value;
+
+    try {
+        const res = await axios.get("https://api.giphy.com/v1/gifs/search", {
+            params: {
+                api_key: giphyApiKey,
+                q: query,
+                limit: 1
+            }
+        });
+
+        const gifUrl = res.data.data[0]?.images.fixed_height.url;
+        if (gifUrl) {
+            const img = document.createElement("img");
+            img.src = gifUrl;
+            gifContainer.appendChild(img);
+        }
+
+        input.value = "";
+
+    } catch (err) {
+        console.error("Failed to fetch GIF:", err);
+    }
+});
+
+removeButton.addEventListener("click", function() {
+    gifContainer.innerHTML = "";
+});
+
 
 
 // async function giphyRequest() {
